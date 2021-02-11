@@ -1,0 +1,60 @@
+<resources>
+    <dimen name="marge_ext">10sp</dimen>
+
+    <string name="omnivore">omnivore</string>
+    <string name="vegetarian">vegetarian</string>
+    <string name="vegan">vegan</string>
+
+    <string name="menu_composition">menu composition</string>
+    <string name="starter">Starters</string>
+    <string name="main_course">main course</string>
+    <string name="dessert">dessert</string>
+    <string name="quantity_Tv">quantity</string>
+    <string name="quantity_Et">Quantity</string>
+    <string name="add">Add</string>
+    <string name="recap">Recap</string>
+    <string name="observation">Comments</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+
+    <string-array name="entrees">
+        <item>Nothing</item>
+        <item>Homemade Foie gras</item>
+        <item>Smoked salmon</item>
+        <item>Green salad</item>
+        <item>Panned Gambas</item>
+    </string-array>
+
+    <string-array name="plats">
+        <item>Nothing</item>
+        <item>Tournedos of rossini beef</item>
+        <item>Sea bream fillet</item>
+        <item>Duck breast</item>
+        <item>Sirloin</item>
+        <item>Risotto with vegetables and parmesan cheese</item>
+        <item>Lasagnes with ratatouille</item>
+    </string-array>
+
+    <string-array name="desserts">
+        <item>Nothing</item>
+        <item>Homemade Tiramisu</item>
+        <item>Iles flottantes</item>
+        <item>Homemade Crème brûlée maison</item>
+        <item>Fresh fruit salad</item>
+        <item>Chocolate mousse</item>
+    </string-array>
+
+    <string-array name="quantity">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+</resources>
