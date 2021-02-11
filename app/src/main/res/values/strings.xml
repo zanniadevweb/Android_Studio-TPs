@@ -1,0 +1,54 @@
+<resources>
+    <string name="menu_composition">composition menu</string>
+    <string name="starter">Entrées</string>
+    <string name="main_course">plat</string>
+    <string name="dessert">dessert</string>
+    <string name="quantity_Tv">quantité</string>
+    <string name="quantity_Et">Quantité</string>
+    <string name="add">Ajouter</string>
+    <string name="recap">Récapitulatif</string>
+    <string name="observation">Remarques</string>
+    <string name="save">Enregistrer</string>
+    <string name="cancel">Annuler</string>
+
+    <string-array name="entrees">
+        <item>Aucun</item>
+        <item>Foie gras fait maison</item>
+        <item>Saumon fumé</item>
+        <item>Salade verte</item>
+        <item>Gambas poêlées</item>
+    </string-array>
+
+    <string-array name="plats">
+        <item>Aucun</item>
+        <item>Tournedos de boeuf rossini</item>
+        <item>Filet de daurade</item>
+        <item>Magret de canard</item>
+        <item>Faux filet</item>
+        <item>Risottos aux légumes et parmesan</item>
+        <item>Lasagnes à la ratatouille</item>
+    </string-array>
+
+    <string-array name="desserts">
+        <item>Aucun</item>
+        <item>Tiramisu maison</item>
+        <item>Iles flottantes</item>
+        <item>Crème brûlée maison</item>
+        <item>Salade de fruits frais</item>
+        <item>Mousse au chocolat</item>
+    </string-array>
+
+    <string-array name="quantity">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+</resources>

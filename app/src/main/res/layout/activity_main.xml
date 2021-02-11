@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/Iv_LogoResto"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        tools:srcCompat="@drawable/logoresto" />
+
+    <TextView
+        android:id="@+id/Tv_TextCompo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu_composition" />
+
+    <TextView
+        android:id="@+id/Tv_TextEntree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/starter" />
+
+    <Spinner
+        android:id="@+id/S_SpinnerEntree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/Tv_TextPlat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/main_course" />
+
+    <Spinner
+        android:id="@+id/S_SpinnerPlat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/Tv_TextDessert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dessert" />
+
+    <Spinner
+        android:id="@+id/S_SpinnerDessert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/Tv_TextQuantite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/quantity_Tv" />
+
+    <Spinner
+        android:id="@+id/S_quantite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/Et_quantite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/quantity_Et"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/Bt_Ajouter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add" />
+
+    <TextView
+        android:id="@+id/Tv_TextRecap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/recap" />
+
+
+    <EditText
+        android:id="@+id/Et_remarques"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/observation"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/Bt_Enregistrer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save" />
+
+    <Button
+        android:id="@+id/Bt_Annuler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel" />
+
+
+</LinearLayout>
