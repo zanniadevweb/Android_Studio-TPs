@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+
 
 <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -187,53 +186,59 @@
         android:layout_margin="@dimen/marge_ext"
         android:text="@string/add" />
 
-    <TextView
-        android:id="@+id/Tv_TextRecap"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/tailleTextRecap"
-        android:layout_marginLeft="@dimen/marge_ext"
-        android:textSize="18sp"
-        android:text="@string/recap" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars = "vertical"
+        android:fillViewport="true">
 
+        <TextView
+            android:id="@+id/Tv_TextRecap"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tailleTextRecap"
+            android:layout_marginLeft="@dimen/marge_ext"
+            android:textSize="18sp"
+            android:text="@string/recap" />
+
+    </ScrollView>
 
     <EditText
         android:id="@+id/Et_remarques"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autoText="true"
         android:hint="@string/observation"
-        android:inputType="textCapSentences" />
+        android:inputType="textCapSentences|textAutoCorrect"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
         android:gravity="bottom"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/Bt_Enregistrer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marge_ext"
-            android:textColor="@color/green"
             android:layout_weight="40"
-            android:textStyle="bold"
-            android:layout_gravity="bottom"
-            android:text="@string/save" />
+            android:text="@string/save"
+            android:textColor="@color/green"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/Bt_Annuler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marge_ext"
-            android:background="@color/dark_grey"
-            android:textColor="@color/white"
             android:layout_weight="60"
-            android:layout_gravity="bottom"
-            android:text="@string/cancel" />
+            android:background="@color/dark_grey"
+            android:text="@string/cancel"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 
 </LinearLayout>
 
-    </ScrollView>
+
