@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:fillViewport="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal" >
 
         <ImageView
@@ -22,6 +20,8 @@
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_weight="70"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
             android:src="@drawable/logoresto" />
 
         <TextView
@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/marge_ext"
+            android:layout_marginStart="@dimen/marge_ext"
             android:layout_weight="30"
             android:text="@string/menu_composition"
             android:textSize="24sp"
@@ -43,39 +43,6 @@
         android:layout_height="10dp"
         android:background="@color/black" />
 
-    <RadioGroup
-        android:id="@+id/radio_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_above="@+id/view_below"
-        android:layout_marginLeft="@dimen/marge_ext"
-        android:layout_marginRight="@dimen/marge_ext">
-
-        <RadioButton
-            android:id="@+id/Rb_Omnivore"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="@string/omnivore" />
-
-        <RadioButton
-            android:id="@+id/Rb_Vegetarien"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="@string/vegetarian" />
-
-        <RadioButton
-            android:id="@+id/Rb_Vegan"
-            android:layout_width="match_parent"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="@string/vegan" />
-
-    </RadioGroup>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -83,66 +50,66 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="33">
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/Tv_TextEntree"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/marge_ext"
+                android:gravity="center"
                 android:text="@string/starter" />
 
             <Spinner
-                android:id="@+id/S_SpinnerEntree"
+                android:id="@+id/s_entrees"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/marge_ext"
+                android:layout_marginStart="@dimen/marge_ext"
                 android:entries="@array/entrees" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="33">
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/Tv_TextPlat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/marge_ext"
+                android:gravity="center"
                 android:text="@string/main_course" />
 
             <Spinner
-                android:id="@+id/S_SpinnerPlat"
+                android:id="@+id/s_plats"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/marge_ext"
+                android:layout_marginStart="@dimen/marge_ext"
                 android:entries="@array/plats" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="33">
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/Tv_TextDessert"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/marge_ext"
+                android:gravity="center"
                 android:text="@string/dessert" />
 
             <Spinner
-                android:id="@+id/S_SpinnerDessert"
+                android:id="@+id/s_dessert"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/marge_ext"
+                android:layout_marginStart="@dimen/marge_ext"
                 android:entries="@array/desserts" />
 
     </LinearLayout>
@@ -162,7 +129,7 @@
         android:orientation="horizontal" >
 
         <Spinner
-            android:id="@+id/S_quantite"
+            android:id="@+id/s_qte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/marge_ext"
@@ -170,7 +137,7 @@
             android:entries="@array/quantity" />
 
         <EditText
-            android:id="@+id/Et_quantite"
+            android:id="@+id/et_qte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/quantity_Et"
@@ -180,45 +147,71 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/Bt_Ajouter"
+        android:id="@+id/b_ajouter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/marge_ext"
         android:text="@string/add" />
 
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tailleTextRecap"
         android:scrollbars = "vertical"
         android:fillViewport="true">
 
         <TextView
-            android:id="@+id/Tv_TextRecap"
+            android:id="@+id/tv_recap"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/tailleTextRecap"
-            android:layout_marginLeft="@dimen/marge_ext"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marge_ext"
             android:textSize="18sp"
             android:text="@string/recap" />
 
     </ScrollView>
 
     <EditText
-        android:id="@+id/Et_remarques"
+        android:id="@+id/et_remarques"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/observation"
+        android:ems="10"
         android:inputType="textCapSentences|textAutoCorrect"
         />
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rb_omni"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/omnivore" />
+
+        <RadioButton
+            android:id="@+id/rb_vege"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/vegetarian" />
+
+        <RadioButton
+            android:id="@+id/rb_veg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/vegan" />
+
+    </RadioGroup>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
         android:gravity="bottom"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/Bt_Enregistrer"
+            android:id="@+id/b_enregistrer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marge_ext"
@@ -228,7 +221,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/Bt_Annuler"
+            android:id="@+id/b_annuler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/marge_ext"

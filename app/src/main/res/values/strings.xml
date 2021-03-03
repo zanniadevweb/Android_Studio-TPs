@@ -1,6 +1,6 @@
 <resources>
     <dimen name="marge_ext">10sp</dimen>
-
+    <string name="appname">Commande Client</string>
     <string name="omnivore">omnivore</string>
     <string name="vegetarian">végétarien</string>
     <string name="vegan">vegan</string>
@@ -16,6 +16,35 @@
     <string name="observation">Remarques</string>
     <string name="save">Enregistrer</string>
     <string name="cancel">Annuler</string>
+
+
+    <string name="app_name">Commande client</string>
+    <string name="tv_titre">composition menu</string>
+    <string name="sp_entr">Entrées</string>
+    <string name="sp_pl">Plats</string>
+    <string name="sp_dess">Desserts</string>
+    <string name="tv_entr">Entrées</string>
+    <string name="tv_plats">Plats</string>
+    <string name="tv_desserts">Desserts</string>
+    <string name="tv_qte">Quantité</string>
+    <string name="et_qte">Quantité</string>
+    <string name="b_ajouter">Ajouter</string>
+    <string name="tv_recap">Récapitulatif</string>
+    <string name="et_remarq">Remarques</string>
+    <string name="b_enreg">Enregistrer</string>
+    <string name="b_ann">Annuler</string>
+    <string name="rb_omnivore">omnivore</string>
+    <string name="rb_vegetarien">végétarien</string>
+    <string name="rb_vegan">vegan</string>
+    <string name="titreAjout">Ajout d\'un élément</string>
+    <string name="titreSuppr">Suppression d\'un élément</string>
+    <string name="titreMod">Modification d\'un élément</string>
+    <string name="b_mod">Modifier</string>
+    <string name="b_suppr">Supprimer</string>
+    <string name="rb_entr">Entrée</string>
+    <string name="rb_plat">Plat</string>
+    <string name="rb_dessert">Dessert</string>
+    <string name="et_nom">Nom</string>
 
     <string-array name="entrees">
         <item>Aucun</item>
@@ -55,6 +84,7 @@
         <item>8</item>
         <item>9</item>
         <item>10</item>
+        <item>autre</item>
     </string-array>
 
 </resources>

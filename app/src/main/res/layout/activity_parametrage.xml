@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ParametrageActivity">
+
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/titreAjout"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/rg_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rb_entree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_entr" />
+
+        <RadioButton
+            android:id="@+id/rb_plat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_plat" />
+
+        <RadioButton
+            android:id="@+id/rb_dessert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/rb_dessert" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/et_nomAjout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/et_nom"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/b_ajouterElement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/b_ajouter" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#FF000000" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/titreSuppr"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/tv_entr"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/s_entreesSuppr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/entrees"
+                android:padding="10sp"
+                android:spinnerMode="dialog" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/tv_plats"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/s_platSuppr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/plats"
+                android:padding="10sp"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/tv_desserts"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/s_dessertSuppr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/desserts"
+                android:padding="10sp"
+                android:spinnerMode="dialog" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/b_supprimerElement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/b_suppr" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#FF000000" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/titreMod"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/tv_entr"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/s_entreesMod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/entrees"
+                android:padding="10sp"
+                android:spinnerMode="dialog" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/tv_plats"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/s_platMod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/plats"
+                android:padding="10sp"
+                android:spinnerMode="dialog" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/tv_desserts"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/s_dessertMod"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/desserts"
+                android:padding="10sp"
+                android:spinnerMode="dialog" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_nomMod"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/et_nom"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/b_modifierElement"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/b_mod" />
+
+
+</LinearLayout>
