@@ -56,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
         s_qte.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Object quantite = s_qte.getSelectedItem();
-                et_qte.setText(quantite.toString());
-                //et_qte.setText((getResources().getStringArray(R.array.quantity[position])));   ---- NE MARCHE PAS ----
+               //Object quantite = s_qte.getSelectedItem();
+               //et_qte.setText(quantite.toString());
+                // et_qte.setText((getResources().getStringArray(R.array.quantity[position])));   //---- NE MARCHE PAS ----
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -77,19 +77,20 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void afterTextChanged(Editable editable) {
-                String[] stringArray = getResources().getStringArray(R.array.quantity);
+               String[] stringArray = getResources().getStringArray(R.array.quantity);
 
-                for (int i=0; i < stringArray.length; i++){
-                    if ( editable.toString().equals(stringArray[i])) {
-                        s_qte.setSelection(i);
-                    }
-                    /*
-                    if (Integer.parseInt(editable.toString())>10) {
-                        s_qte.setSelection(stringArray.length-1);
-                    }
-                     */
+                        if (editable.toString().length() > 0) {
+
+                            int valeurEntiere = Integer.parseInt(editable.toString())-1;
+
+                            if (valeurEntiere > 10) {
+                                s_qte.setSelection(stringArray.length-1);
+                            }
+                            else {
+                                s_qte.setSelection(valeurEntiere);
+                            }
+                        }
                 }
-            }
         });
 
         b_gestionplats.setOnClickListener(new View.OnClickListener() {

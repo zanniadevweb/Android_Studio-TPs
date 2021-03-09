@@ -150,9 +150,9 @@
             android:id="@+id/et_qte"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/quantity_Et"
             android:layout_weight="30"
-            android:inputType="number"/>
+            android:hint="@string/quantity_Et"
+            android:inputType="number" />
 
     </LinearLayout>
 
