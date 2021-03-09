@@ -1,5 +1,6 @@
 package com.example.tp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton rb_omni;
     private RadioButton rb_vege;
     private RadioButton rb_veg;
+    private Button b_gestionplats;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
         rb_omni = findViewById(R.id.rb_omni);
         rb_vege = findViewById(R.id.rb_vege);
         rb_veg = findViewById(R.id.rb_veg);
+        b_gestionplats = findViewById(R.id.b_gestionplats);
+        Modele.initPlats();
+        Modele.lesPlats.get(0);
 
         s_qte.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
@@ -79,12 +84,22 @@ public class MainActivity extends AppCompatActivity {
                         s_qte.setSelection(i);
                     }
                     /*
-                    if (!editable.toString().equals(stringArray[i])) {
+                    if (Integer.parseInt(editable.toString())>10) {
                         s_qte.setSelection(stringArray.length-1);
-                    }*/
+                    }
+                     */
                 }
             }
         });
+
+        b_gestionplats.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent ouvertureActivity = new Intent(MainActivity.this,GestPlatsActivity.class);
+                startActivity(ouvertureActivity);
+            }
+        });
+
 
     }
 }

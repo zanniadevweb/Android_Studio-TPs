@@ -45,6 +45,8 @@
     <string name="rb_plat">Plat</string>
     <string name="rb_dessert">Dessert</string>
     <string name="et_nom">Nom</string>
+    <string name="gestionplats">Gestion Plats</string>
+    <string name="nouveauplat">Nouveau plat</string>
 
     <string-array name="entrees">
         <item>Aucun</item>

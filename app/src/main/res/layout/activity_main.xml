@@ -35,6 +35,16 @@
             android:textSize="24sp"
             android:textStyle="bold|italic"/>
 
+        <Button
+            android:id="@+id/b_gestionplats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/marge_ext"
+            android:layout_weight="60"
+            android:background="@color/dark_grey"
+            android:text="@string/gestionplats"
+            android:textColor="@color/white" />
+
     </LinearLayout>
 
     <View
