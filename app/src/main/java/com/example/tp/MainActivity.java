@@ -15,6 +15,8 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.Iterator;
+
 public class MainActivity extends AppCompatActivity {
 
     private Spinner s_entrees;
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton rb_vege;
     private RadioButton rb_veg;
     private Button b_gestionplats;
+    int ind;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,15 +53,18 @@ public class MainActivity extends AppCompatActivity {
         rb_vege = findViewById(R.id.rb_vege);
         rb_veg = findViewById(R.id.rb_veg);
         b_gestionplats = findViewById(R.id.b_gestionplats);
+
+
         Modele.initPlats();
-        Modele.lesPlats.get(0);
+        //Modele.lesPlats.get(0);
+
+        ind = Modele.newCommande();
 
         s_qte.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-               //Object quantite = s_qte.getSelectedItem();
-               //et_qte.setText(quantite.toString());
-                // et_qte.setText((getResources().getStringArray(R.array.quantity[position])));   //---- NE MARCHE PAS ----
+               //et_qte.setText(position  + "");
+               //Log.d("testLog",""+position);
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -77,7 +83,8 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void afterTextChanged(Editable editable) {
-               String[] stringArray = getResources().getStringArray(R.array.quantity);
+
+                String[] stringArray = getResources().getStringArray(R.array.quantity);
 
                         if (editable.toString().length() > 0) {
 
@@ -90,6 +97,19 @@ public class MainActivity extends AppCompatActivity {
                                 s_qte.setSelection(valeurEntiere);
                             }
                         }
+
+               // OU
+
+
+                /*if (editable.toString().length() > 0) {
+
+                    int indice = Integer.parseInt(editable.toString());
+                    if (indice <= 10 && indice > 0) {
+                        s_qte.setSelection(Integer.parseInt(editable.toString())-1);
+                    } else {
+                        s_qte.setSelection(0);
+                    }
+                }*/
                 }
         });
 
@@ -102,5 +122,96 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        b_ajouter = (Button) findViewById(R.id.b_ajouter);
+        b_ajouter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int quantite = Integer.parseInt(et_qte.getText().toString());
+                if (quantite > 0) {
+                    int indice_entree = s_entrees.getSelectedItemPosition();
+                    if (indice_entree > 0) {
+                        String entree = (getResources().getStringArray(R.array.entrees))[indice_entree];
+                        Modele.lesCommandes.get(ind).getLesEntrees().put(entree, quantite);
+                    }
+
+                    int indice_plat = s_plats.getSelectedItemPosition();
+                    if (indice_plat > 0) {
+                        String plat = (getResources().getStringArray(R.array.plats))[indice_plat];
+                        Modele.lesCommandes.get(ind).getLesPlats().put(plat, quantite);
+                    }
+
+                    int indice_dessert = s_desserts.getSelectedItemPosition();
+                    if (indice_dessert > 0) {
+                        String dessert = (getResources().getStringArray(R.array.desserts))[indice_dessert];
+                        Modele.lesCommandes.get(ind).getLesDesserts().put(dessert, quantite);
+                    }
+
+                }
+
+                tv_recap.setText("");
+                // parcours du Hashtable entrées :
+                Iterator iterateur = Modele.lesCommandes.get(ind).getLesEntrees().keySet().iterator();
+                String cle;
+
+                while (iterateur.hasNext()) {
+                    cle = (String) iterateur.next();
+                    tv_recap.append(cle + " : " + Modele.lesCommandes.get(ind).getLesEntrees().get(cle) + "\n");
+                }
+                // parcours du Hashtable plats :
+                iterateur = Modele.lesCommandes.get(ind).getLesPlats().keySet().iterator();
+                while (iterateur.hasNext()) {
+                    cle = (String) iterateur.next();
+                    tv_recap.append(cle + " : " + Modele.lesCommandes.get(ind).getLesPlats().get(cle) + "\n");
+                }
+                // parcours du Hashtable desserts :
+                iterateur = Modele.lesCommandes.get(ind).getLesDesserts().keySet().iterator();
+                while (iterateur.hasNext()) {
+                    cle = (String) iterateur.next();
+                    tv_recap.append(cle + " : " + Modele.lesCommandes.get(ind).getLesDesserts().get(cle) + "\n");
+                }
+
+                s_entrees.setSelection(0);
+                s_plats.setSelection(0);
+                s_desserts.setSelection(0);
+
+            }
+        });
+
+
+        s_entrees = (Spinner) findViewById(R.id.s_entrees);
+        s_entrees.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("testLog", ((TextView) view).getText().toString());
+                Log.d("testLog", (getResources().getStringArray(R.array.entrees))[position]);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
+
+/*
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected( MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_parametrage:
+                Intent ouvertureParametrage = new Intent(MainActivity.this, ParametrageActivity.class);
+                startActivity(ouvertureParametrage);
+                break;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }*/
+
+    //}
 }
