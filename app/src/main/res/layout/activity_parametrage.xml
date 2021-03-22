@@ -154,6 +154,14 @@
         android:layout_height="wrap_content"
         android:text="@string/b_suppr" />
 
+    <EditText
+        android:id="@+id/et_nomSuppr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/et_nom"
+        android:inputType="textPersonName" />
+
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="match_parent"

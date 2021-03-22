@@ -9,12 +9,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 public class MainActivity extends AppCompatActivity {
@@ -54,11 +56,19 @@ public class MainActivity extends AppCompatActivity {
         rb_veg = findViewById(R.id.rb_veg);
         b_gestionplats = findViewById(R.id.b_gestionplats);
 
-
+        Modele.initEntrees();
         Modele.initPlats();
-        //Modele.lesPlats.get(0);
+        Modele.initDesserts();
+        affSpinnerEntree();
+        affSpinnerPlat();
+        affSpinnerDessert();
 
         ind = Modele.newCommande();
+
+        // ------------------------ Méthode de récupération liste plats par base de données
+        //ArrayList<TypePlat> uneListePlats
+
+        // ------------------------ Méthode de récupération liste plats par base de données
 
         s_qte.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
@@ -193,7 +203,31 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-/*
+    public void affSpinnerEntree() {
+        ArrayAdapter<String> adapter = new ArrayAdapter<String> ( this, android.R.layout.simple_list_item_1);
+        for (int i=0; i < Modele.lesEntrees.size() ; i++) {
+            adapter.add(Modele.lesEntrees.get(i));
+        }
+        s_entrees.setAdapter(adapter);
+    }
+
+    public void affSpinnerPlat() {
+        ArrayAdapter<String> adapter = new ArrayAdapter<String> ( this, android.R.layout.simple_list_item_1);
+        for (int i=0; i < Modele.lesPlats.size() ; i++) {
+            adapter.add(Modele.lesPlats.get(i));
+        }
+        s_plats.setAdapter(adapter);
+    }
+
+    public void affSpinnerDessert() {
+        ArrayAdapter<String> adapter = new ArrayAdapter<String> ( this, android.R.layout.simple_list_item_1);
+        for (int i=0; i < Modele.lesDesserts.size() ; i++) {
+            adapter.add(Modele.lesDesserts.get(i));
+        }
+        s_desserts.setAdapter(adapter);
+    }
+
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
