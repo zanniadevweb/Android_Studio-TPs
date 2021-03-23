@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class TypePlatDAO extends SQLiteOpenHelper {
 
-    public TypePlatDAO(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public TypePlatDAO(@Nullable Context context) {
         super(context, Param.base, null, Param.version);
     }
 
@@ -20,7 +20,7 @@ public class TypePlatDAO extends SQLiteOpenHelper {
                 + "idTP INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "libelleTP TEXT NOT NULL) ;");
 
-        sqLiteDatabase.execSQL("insert into typeplat (libelleTP) values('entrée', 'plat', 'dessert')");
+        sqLiteDatabase.execSQL("insert into TypePlat (libelleTP) values('entrée'), ('plat'), ('dessert')");
 
         // OU
 
@@ -31,6 +31,15 @@ public class TypePlatDAO extends SQLiteOpenHelper {
         valeurs.put("libelleTP", "dessert");
         sqLiteDatabase.insert("typeplat", null, valeurs);
          */
+
+        sqLiteDatabase.execSQL("create table plat ("
+                + "idP INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + "libelleP TEXT NOT NULL,"
+                + "idTP INTEGER, "
+                + "FOREIGN KEY (idTP) REFERENCES plat(idTP)) ;");
+
+        sqLiteDatabase.execSQL("insert into Plat (libelleP, idTP) values('Aucun',2), ('Tournedos de boeuf rossini',2), " +
+                "('Filet de canard',2), ('Magret de canard',2), ('Faux filet',2), ('Risottos aux legumes et parmesan',2), ('Lasagnes à la ratatouille',2) ");
     }
 
     @Override
@@ -38,13 +47,14 @@ public class TypePlatDAO extends SQLiteOpenHelper {
 
     }
 
-    private ArrayList<TypePlat> getPlats () {
-       ArrayList<TypePlat> uneListePlats = null;
-       Cursor curseur;
-       curseur = this.getReadableDatabase().rawQuery("select * from typeplat", null);
-       uneListePlats = cursorToTypePlatArrayList(curseur);
+    /*
+    public ArrayList<TypePlat> getPlats () {
+        ArrayList<TypePlat> uneListePlats = null;
+        Cursor curseur;
+        curseur = this.getReadableDatabase().rawQuery("select * from typeplat", null);
+        uneListePlats = cursorToTypePlatArrayList(curseur);
 
-       return uneListePlats;
+        return uneListePlats;
     }
 
     private ArrayList<TypePlat> cursorToTypePlatArrayList(Cursor curseur) {
@@ -61,4 +71,6 @@ public class TypePlatDAO extends SQLiteOpenHelper {
         }
         return uneListePlats;
     }
+    */
+
 }

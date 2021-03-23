@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
     private Button b_gestionplats;
     int ind;
 
+    private TypePlatDAO unTypePlatDAO;
+    private PlatDAO unPlatDAO;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +69,29 @@ public class MainActivity extends AppCompatActivity {
         ind = Modele.newCommande();
 
         // ------------------------ Méthode de récupération liste plats par base de données
-        //ArrayList<TypePlat> uneListePlats
+        // -___________________________________________TypePlat______________________________-
+        //ArrayList<TypePlat> listeTypePlatsRecherche;
+        unTypePlatDAO = new TypePlatDAO(this); // Table typePlat créée en premier lieu
+        /*listeTypePlatsRecherche = unTypePlatDAO.getPlats();
+
+        for (TypePlat unTypePlat : listeTypePlatsRecherche ) {
+            Log.d("onCreate", unTypePlat.toString());
+        }
+
+        Log.d("onCreate", unTypePlatDAO.getPlats().toString());*/
+
+        // -___________________________________________Plat______________________________-
+
+        ArrayList<Plat> listePlatsRecherche;
+        unPlatDAO = new PlatDAO(this); // Table Plat créée en second lieu
+
+       listePlatsRecherche = unPlatDAO.getPlats();
+
+        for (Plat unPlat : listePlatsRecherche ) {
+            Log.d("onCreate", unPlat.toString());
+        }
+
+        Log.d("onCreate", unPlatDAO.getPlats().toString());
 
         // ------------------------ Méthode de récupération liste plats par base de données
 
