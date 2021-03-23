@@ -38,8 +38,15 @@ public class TypePlatDAO extends SQLiteOpenHelper {
                 + "idTP INTEGER, "
                 + "FOREIGN KEY (idTP) REFERENCES plat(idTP)) ;");
 
+        sqLiteDatabase.execSQL("insert into Plat (libelleP, idTP) values('Aucun',1), ('Foie gras fait maison',1), " +
+                "('Saumon fumé',1), ('Salade verte',1), ('Gambas pôelées',1) ");
+
         sqLiteDatabase.execSQL("insert into Plat (libelleP, idTP) values('Aucun',2), ('Tournedos de boeuf rossini',2), " +
                 "('Filet de canard',2), ('Magret de canard',2), ('Faux filet',2), ('Risottos aux legumes et parmesan',2), ('Lasagnes à la ratatouille',2) ");
+
+        sqLiteDatabase.execSQL("insert into Plat (libelleP, idTP) values('Aucun',3), ('Tiramisu maison',3), " +
+                "('Iles flottantes',3), ('Crème brûlée maison',3), ('Salade de fruits frais',3), ('Mousse au chocolat',3) ");
+
     }
 
     @Override

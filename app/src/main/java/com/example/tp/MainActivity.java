@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TypePlatDAO unTypePlatDAO;
     private PlatDAO unPlatDAO;
+    public ArrayList<Plat> listePlatsRecherche;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,22 +71,14 @@ public class MainActivity extends AppCompatActivity {
 
         // ------------------------ Méthode de récupération liste plats par base de données
         // -___________________________________________TypePlat______________________________-
-        //ArrayList<TypePlat> listeTypePlatsRecherche;
+
         unTypePlatDAO = new TypePlatDAO(this); // Table typePlat créée en premier lieu
-        /*listeTypePlatsRecherche = unTypePlatDAO.getPlats();
-
-        for (TypePlat unTypePlat : listeTypePlatsRecherche ) {
-            Log.d("onCreate", unTypePlat.toString());
-        }
-
-        Log.d("onCreate", unTypePlatDAO.getPlats().toString());*/
 
         // -___________________________________________Plat______________________________-
 
-        ArrayList<Plat> listePlatsRecherche;
         unPlatDAO = new PlatDAO(this); // Table Plat créée en second lieu
 
-       listePlatsRecherche = unPlatDAO.getPlats();
+        listePlatsRecherche = unPlatDAO.getPlats();
 
         for (Plat unPlat : listePlatsRecherche ) {
             Log.d("onCreate", unPlat.toString());
@@ -229,19 +222,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void affSpinnerEntree() {
+
+        // Méthode Modèle
         ArrayAdapter<String> adapter = new ArrayAdapter<String> ( this, android.R.layout.simple_list_item_1);
         for (int i=0; i < Modele.lesEntrees.size() ; i++) {
             adapter.add(Modele.lesEntrees.get(i));
         }
         s_entrees.setAdapter(adapter);
+
     }
 
     public void affSpinnerPlat() {
-        ArrayAdapter<String> adapter = new ArrayAdapter<String> ( this, android.R.layout.simple_list_item_1);
+        // Méthode Modèle
+        /*ArrayAdapter<String> adapter = new ArrayAdapter<String> ( this, android.R.layout.simple_list_item_1);
         for (int i=0; i < Modele.lesPlats.size() ; i++) {
             adapter.add(Modele.lesPlats.get(i));
         }
-        s_plats.setAdapter(adapter);
+        s_plats.setAdapter(adapter);*/
+
+        // Méthode Base de données
+        listePlatsRecherche = unPlatDAO.getPlats();
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String> ( this, android.R.layout.simple_list_item_1);
+        for (int i=0; i < listePlatsRecherche.size() ; i++) {
+            adapter.add(listePlatsRecherche.get(i).getLibelleP());
+        }
+        /*for (Plat unPlat : listePlatsRecherche ) {
+            adapter.add(unPlat.toString());
+        }*/
+        s_entrees.setAdapter(adapter);
     }
 
     public void affSpinnerDessert() {
